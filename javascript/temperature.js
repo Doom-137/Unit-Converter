@@ -1,12 +1,13 @@
-// Converts temperature units between Farenheit ('F'), celcius ('C'), Reaumur ('R'), Kelvin ('K'), Newton ('N'), Delisle ('De'), Romer (Ro)
+// Converts temperature units between Farenheit 'F', celcius 'C', Reaumur 'R', Kelvin 'K', Newton 'N', Delisle 'DE', Romer 'RO'
 function convertTemp (input, inputUnit = 'F', outputUnit = 'C') {
 	const errorMessage = '';
-	const unitsArr = ['C', 'De', 'F', 'K', 'N', 'R', 'Re', 'Ro'];
+	const unitsArr = ['C', 'DE', 'F', 'K', 'N', 'R', 'RE', 'RO'];
 	let validator = 0;
 	const outputU = outputUnit.toUpperCase();
+	const inputU = inputUnit.toUpperCase();
 	
 	for (let i = 0; i < unitsArr.length; i++) {
-		if (unitsArr[i] === inputUnit || unitsArr[i] === outputUnit) { validator++; }
+		if (unitsArr[i] === inputU || unitsArr[i] === outputU) { validator++; }
 	}
 	
 	if (validator != 2) {
@@ -14,7 +15,7 @@ function convertTemp (input, inputUnit = 'F', outputUnit = 'C') {
 		return undefined;
 	}
 	
-	switch (inputUnit.toUpperCase()) {
+	switch (inputU) {
 		case 'C':
 			if (outputU === 'DE') {
 				return (100 - input) * 3/2;
