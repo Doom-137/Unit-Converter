@@ -1,6 +1,6 @@
 // Converts temperature units between Farenheit 'F', celcius 'C', Reaumur 'R', Kelvin 'K', Newton 'N', Delisle 'DE', Romer 'RO'
 function convertTemp (input, inputUnit = 'F', outputUnit = 'C') {
-	const errorMessage = '';
+	const errorMessage = 'Unit invalid, please check entered input and output units and try again.';
 	const unitsArr = ['C', 'DE', 'F', 'K', 'N', 'R', 'RE', 'RO'];
 	let validator = 0;
 	const outputU = outputUnit.toUpperCase();
