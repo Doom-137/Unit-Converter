@@ -2,7 +2,6 @@
 function convertTemp (input, inputUnit = 'f', outputUnit = 'c') {
 	const convertCode = inputUnit.toLowerCase() + outputUnit.toLowerCase();
 	const errorMessage = 'Unit(s) invalid, please check entered input and output units and try again.';
-	const convertCode = inputUnit.toLowerCase() + outputUnit.toLowerCase();
 	const conversionEqs = {
 		'cde': function () { return (100 - input) * 3/2; },
 		'cf': function () { return (input * 9/5) + 32; },
