@@ -65,9 +65,7 @@ function getTemp (input, code) {
 }
 
 function convertTemp (input, inputUnit = 'f', outputUnit = 'c') {
-	const inputU = inputUnit.toLowerCase();
-	const outputU = outputUnit.toLowerCase();
-	const convertCode = inputU + outputU;
+	const convertCode = inputUnit.toLowerCase() + outputUnit.toLowerCase();
 	
 	return getTemp(input, convertCode);
 }
