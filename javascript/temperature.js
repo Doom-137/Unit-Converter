@@ -58,25 +58,16 @@ function getTemp (input, code) {
 		'ror': function () { return (input - 7.5) * 24/7 + 491.67; },
 		'rore': function () { return (input - 7.5) * 32/21; }
 	};
-	return conversionEqs[code]();
+	
+	const errorMessage = 'Unit(s) invalid, please check entered input and output units and try again.';
+	
+	return (code in conversionEqs) ? conversionEqs[code](): errorMessage;
 }
 
 function convertTemp (input, inputUnit = 'f', outputUnit = 'c') {
-	const errorMessage = 'Unit(s) invalid, please check entered input and output units and try again.';
-	const unitsArr = ['c', 'de', 'f', 'k', 'n', 'r', 're', 'ro'];
-	let validator = 0;
 	const inputU = inputUnit.toLowerCase();
 	const outputU = outputUnit.toLowerCase();
 	const convertCode = inputU + outputU;
-	
-	for (let i = 0; i < unitsArr.length; i++) {
-		if (unitsArr[i] === inputU || unitsArr[i] === outputU) { validator++; }
-	}
-	
-	if (validator != 2) {
-		console.log(errorMessage);
-		return undefined;
-	}
 	
 	return getTemp(input, convertCode);
 }
