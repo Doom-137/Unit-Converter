@@ -62,6 +62,5 @@ function convertTemp (input, inputUnit = 'f', outputUnit = 'c') {
 		'rore': function () { return (input - 7.5) * 32/21; }
 	};
 	
-	
 	return (convertCode in conversionEqs) ? conversionEqs[convertCode](): errorMessage;
 }
