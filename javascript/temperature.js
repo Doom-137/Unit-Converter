@@ -1,5 +1,8 @@
 // Converts temperature units between Farenheit 'F', celcius 'C', Reaumur 'R', Kelvin 'K', Newton 'N', Delisle 'DE', Romer 'RO'
-function getTemp (input, code) {
+function convertTemp (input, inputUnit = 'f', outputUnit = 'c') {
+	const convertCode = inputUnit.toLowerCase() + outputUnit.toLowerCase();
+	const errorMessage = 'Unit(s) invalid, please check entered input and output units and try again.';
+	const convertCode = inputUnit.toLowerCase() + outputUnit.toLowerCase();
 	const conversionEqs = {
 		'cde': function () { return (100 - input) * 3/2; },
 		'cf': function () { return (input * 9/5) + 32; },
@@ -59,13 +62,6 @@ function getTemp (input, code) {
 		'rore': function () { return (input - 7.5) * 32/21; }
 	};
 	
-	const errorMessage = 'Unit(s) invalid, please check entered input and output units and try again.';
 	
-	return (code in conversionEqs) ? conversionEqs[code](): errorMessage;
-}
-
-function convertTemp (input, inputUnit = 'f', outputUnit = 'c') {
-	const convertCode = inputUnit.toLowerCase() + outputUnit.toLowerCase();
-	
-	return getTemp(input, convertCode);
+	return (convertCode in conversionEqs) ? conversionEqs[convertCode](): errorMessage;
 }
